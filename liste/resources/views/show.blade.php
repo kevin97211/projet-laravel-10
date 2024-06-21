@@ -9,6 +9,6 @@
     <h1>{{ $product->name }}</h1>
     <p>Description: {{ $product->description }}</p>
     <p>Prix: {{ $product->price }}</p>
-    <a href="{{ route('products.index') }}">Retour à la liste</a>
+    <a href="{{ route('index') }}">Retour à la liste</a>
 </body>
 </html>

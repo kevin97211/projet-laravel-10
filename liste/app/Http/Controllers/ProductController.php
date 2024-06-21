@@ -10,14 +10,14 @@ class ProductController extends Controller
     // Affiche la liste des produits 
     public function index()
     {
-        $products = Product::all();
-        return view('products.index', compact('products'));
+        $produits = Product::all();
+        return view('index', compact('produits'));
     }
 
     // Affiche le formulaire de création d'un produit 
     public function create()
     {
-        return view('products.create');
+        return view('create');
     }
 
     // Stocke un nouveau produit dans la base de données 
@@ -31,20 +31,19 @@ class ProductController extends Controller
 
         Product::create($request->all());
 
-        return redirect()->route('products.index')
-                         ->with('success', 'Product created successfully.');
+        return redirect()->route('index');
     }
 
     // Affiche un produit  
     public function show(Product $product)
     {
-        return view('products.show', compact('product'));
+        return view('show', compact('product'));
     }
 
     // Affiche le formulaire d'édit  
     public function edit(Product $product)
     {
-        return view('products.edit', compact('product'));
+        return view('edit', compact('product'));
     }
 
     // Met à jour le produit 
@@ -58,8 +57,7 @@ class ProductController extends Controller
 
         $product->update($request->all());
 
-        return redirect()->route('products.index')
-                         ->with('success', 'Product updated successfully.');
+        return redirect()->route('index');
     }
 
     // Supprime un produit 
@@ -67,7 +65,6 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('products.index')
-                         ->with('success', 'Product deleted successfully.');
+        return redirect()->route('index');
     }
 }
